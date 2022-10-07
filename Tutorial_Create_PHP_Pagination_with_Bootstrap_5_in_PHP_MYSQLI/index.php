@@ -3,7 +3,7 @@
 //ini_set('display_errors', 1);
 //error_reporting(E_ALL);
 // Connection
-$mysqli = mysqli_connect('localhost', 'db_user', 'db_pass', 'db_name');  
+$mysqli = mysqli_connect('localhost', 'db_user', 'db_password', 'db_name');  
 ?>
 <!DOCTYPE html>
 <html>
