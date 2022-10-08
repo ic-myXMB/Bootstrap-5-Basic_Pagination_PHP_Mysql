@@ -67,7 +67,7 @@ $mysqli = mysqli_connect('localhost', 'db_user', 'db_password', 'db_name');
 				// Data Post Query Select Result
 				$data_post_result = mysqli_query($mysqli, $data_post_select);
 				// While User Data Equals Data User Result
-				while($post_data = mysqli_fetch_array($data_post_result)) {
+				while ($post_data = mysqli_fetch_array($data_post_result)) {
 					?>
 					<tr>
 						<td><?php echo $post_data['post_id']; ?></td>		
@@ -86,7 +86,7 @@ $mysqli = mysqli_connect('localhost', 'db_user', 'db_password', 'db_name');
 		<nav aria-label="..." class="">
 			<ul class="pagination justify-content-center custom-pagination">			
 				<li class="page-item">
-					<a class="page-link" <?php if($page > 1) { echo "href='index.php?page=$previous'"; } ?>>Prev</a>
+					<a class="page-link" <?php if ($page > 1) { echo "href='index.php?page=$previous'"; } ?>>Prev</a>
 				</li>
 				<li class="page-item">
                     <select class="form-control shadow-none">
@@ -95,7 +95,7 @@ $mysqli = mysqli_connect('localhost', 'db_user', 'db_password', 'db_name');
                      <select class="form-control shadow-none" disabled="disabled">
                      -->                                
 				        <?php 
-				        for($x = 1; $x <= $total_page; $x++) {
+				        for ($x = 1; $x <= $total_page; $x++) {
 				           // If x equals page
 				           if ($x == $page) {
 				             // Current selected page status
@@ -112,7 +112,7 @@ $mysqli = mysqli_connect('localhost', 'db_user', 'db_password', 'db_name');
                     </select>
                 </li>											
 				<li class="page-item">
-					<a  class="page-link" <?php if($page < $total_page) { echo "href='index.php?page=$next'"; } ?>>Next</a>
+					<a  class="page-link" <?php if ($page < $total_page) { echo "href='index.php?page=$next'"; } ?>>Next</a>
 				</li>
 			</ul>
 		</nav>

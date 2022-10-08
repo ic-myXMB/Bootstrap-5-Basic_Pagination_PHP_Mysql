@@ -7,7 +7,7 @@
  // Character is empty  
  $character_is = ''; 
  // If Get Character 
- if(isset($_GET["character"])) { 
+ if (isset($_GET["character"])) { 
       // Character
       $character_is = $_GET["character"];  
       $character_is = preg_replace('#[^a-z]#i', '', $character_is); 
@@ -78,7 +78,7 @@
                           <ul class="pagination justify-content-center my-4 custom-pagination">';
                           ?>
                           <li class="page-item">
-                               <a class="page-link" <?php if($letter > '@') { echo "href='index.php?character=$previous'"; } ?>>Prev</a>
+                               <a class="page-link" <?php if ($letter > '@') { echo "href='index.php?character=$previous'"; } ?>>Prev</a>
                           </li>
                          <?php
                           // keep to keep select popup / comment out if using alt below
@@ -95,7 +95,7 @@
                                    <option value="@" onClick="window.location = 'index.php?character=&#64;'"<?php echo $selected ?>>@</option>
                          <?php
                              // For each character as abc
-                             foreach($character as $abc) { 
+                             foreach ($character as $abc) { 
                                    // If abc equals current character
                                    if ($abc == $current_character) {
                                     // Selected Status Selected
@@ -112,7 +112,7 @@
                               </li>';
                          ?>
                           <li class="page-item">
-                               <a  class="page-link" <?php if($letter < 'Z') { echo "href='index.php?character=$next'"; } ?>>Next</a>
+                               <a  class="page-link" <?php if ($letter < 'Z') { echo "href='index.php?character=$next'"; } ?>>Next</a>
                           </li>
                               <?php
                           // Echo                               
@@ -132,9 +132,9 @@
                          </thead>
                           <?php 
                           // If result is greater than 0
-                          if(mysqli_num_rows($result) > 0) {  
+                          if (mysqli_num_rows($result) > 0) {  
                                // While data user equals result
-                               while($data_user = mysqli_fetch_array($result)) {  
+                               while ($data_user = mysqli_fetch_array($result)) {  
                           ?>  
                           <tr>  
                                <td><?php echo $data_user["user_id"]; ?></td>  

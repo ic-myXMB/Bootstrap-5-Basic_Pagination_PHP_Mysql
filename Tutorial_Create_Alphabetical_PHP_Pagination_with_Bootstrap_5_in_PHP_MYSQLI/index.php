@@ -7,7 +7,7 @@
  // Character is empty  
  $character_is = ''; 
  // If Get Character 
- if(isset($_GET["character"])) { 
+ if (isset($_GET["character"])) { 
       // Character
       $character_is = $_GET["character"];  
       $character_is = preg_replace('#[^a-z]#i', '', $character_is); 
@@ -71,7 +71,7 @@
                           echo '<nav aria-label="Pagination">
                           <ul class="pagination justify-content-center my-4">';
                           // For each character as abc
-                          foreach($character as $abc) { 
+                          foreach ($character as $abc) { 
                                    // If abc equals current character
                                    if ($abc == $current_character) {
                                     // Character link status active  
@@ -100,9 +100,9 @@
                          </thead>
                           <?php 
                           // If result is greater than 0
-                          if(mysqli_num_rows($result) > 0) {  
+                          if (mysqli_num_rows($result) > 0) {  
                                // While data user equals result
-                               while($data_user = mysqli_fetch_array($result)) {  
+                               while ($data_user = mysqli_fetch_array($result)) {  
                           ?>  
                           <tr>  
                                <td><?php echo $data_user["user_id"]; ?></td>  
