@@ -14,10 +14,10 @@
       // Current Character 
       $current_character = $character_is;
       // Query Select
-      $query = "SELECT * FROM users WHERE user_name LIKE '$character_is%'"; 
+      $query = "SELECT * FROM `users` WHERE user_name LIKE '$character_is%'"; 
  } else { 
       // Query Select 
-      $query = "SELECT * FROM users ORDER BY user_id";  
+      $query = "SELECT * FROM `users` ORDER BY user_id";  
  }
  // Current Character 
  $current_character = $character_is;
