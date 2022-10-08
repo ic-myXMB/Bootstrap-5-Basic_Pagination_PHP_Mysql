@@ -2,7 +2,7 @@
 // Display Errors if needed
 //ini_set('display_errors', 1);
 //error_reporting(E_ALL);
-
+// Connection
 $mysqli = mysqli_connect('localhost', 'db_user', 'db_password', 'db_name');  
 ?>
 <!DOCTYPE html>
@@ -20,7 +20,6 @@ $mysqli = mysqli_connect('localhost', 'db_user', 'db_password', 'db_name');
     .custom-pagination select {
          border-radius: 0px;
     }
-
     .page-item:not(:first-child) .page-link {
     	 /* unset existing -1 px */
          margin-left:  unset;
@@ -45,38 +44,33 @@ $mysqli = mysqli_connect('localhost', 'db_user', 'db_password', 'db_name');
 			</thead>
 			<tbody>
 				<?php 
-                // Limit
+				// Limit
 				$limit = 10;
-                // Page
+				// Page
 				$page = isset($_GET['page'])?(int)$_GET['page'] : 1;
-                // Start Page
+				// Start Page
 				$start_page = ($page > 1) ? ($page * $limit) - $limit : 0;	
-                // Previous
+				// Previous
 				$previous = $page - 1;
-                // Next
+				// Next
 				$next = $page + 1;
-                // Query Select
+				// Query Select
 				$data_select = "SELECT * FROM `posts`";
-                // Data Select Query		
+				// Data Select Query		
 				$data_select_query = mysqli_query($mysqli, $data_select);
-                // Total Data
+				// Total Data
 				$total_data = mysqli_num_rows($data_select_query);
-                // Total Page
+				// Total Page
 				$total_page = ceil($total_data / $limit);
-                // Query Select Data Post
+				// Query Select Data Post
 				$data_post_select = "SELECT * FROM `posts` LIMIT $start_page, $total_page";
-                // Data Post Query Select Result
+				// Data Post Query Select Result
 				$data_post_result = mysqli_query($mysqli, $data_post_select);
-                // Number
-				$number = $start_page + 1;
-                // While User Data Equals Data User Result
+				// While User Data Equals Data User Result
 				while($post_data = mysqli_fetch_array($data_post_result)) {
 					?>
 					<tr>
-						<td><?php echo $number++; ?></td>
-						<!--
-						<td><?php //echo $post_data['post_id']; ?></td>	
-						-->			
+						<td><?php echo $post_data['post_id']; ?></td>		
 						<td><?php echo $post_data['post_name']; ?></td>
 						<td><?php echo $post_data['post_author']; ?></td>
 						<!-- Controls -->
@@ -94,37 +88,26 @@ $mysqli = mysqli_connect('localhost', 'db_user', 'db_password', 'db_name');
 				<li class="page-item">
 					<a class="page-link" <?php if($page > 1) { echo "href='index.php?page=$previous'"; } ?>>Prev</a>
 				</li>
-
 				<li class="page-item">
                     <select class="form-control shadow-none">
 				     <!-- Uncomment to use this instead for disabled -->
 				     <!--
                      <select class="form-control shadow-none" disabled="disabled">
-                     -->
-                                
+                     -->                                
 				        <?php 
 				        for($x = 1; $x <= $total_page; $x++) {
-
 					       // If x equals page
                            if ($x == $page) {
-
                     	     // Current selected page status
                              $selected_page = ' selected';
-
                             } else {
-
                     	 // Current selected page status
                          $selected_page = '';                    	
-
                         }
-
 					    ?> 
-
                          <option value="<?php echo $x ?>" onClick="window.location = 'index.php?page=<?php echo $x ?>'"<?php echo $selected_page ?>><?php echo $x ?></option>
- 
 					    <?php
 				        }
-
                         ?>
                     </select>
                 </li>											
