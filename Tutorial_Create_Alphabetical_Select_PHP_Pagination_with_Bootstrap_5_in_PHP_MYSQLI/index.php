@@ -82,7 +82,7 @@
                           </li>
                          <?php
                           // keep to keep select popup / comment out if using alt below
-                          echo'<li class="page-item">
+                          echo '<li class="page-item">
                                  <select class="form-control shadow-none">';
                         /* 
                           // un-comment to disable select popup
