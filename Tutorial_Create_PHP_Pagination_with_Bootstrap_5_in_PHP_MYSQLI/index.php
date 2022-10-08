@@ -104,14 +104,14 @@ $mysqli = mysqli_connect('localhost', 'db_user', 'db_password', 'db_name');
 				</li>
 				<?php 
 				for($x = 1; $x <= $total_page; $x++) {
-					// If x equals page
-                    if ($x == $page) {
-                    	// Current page status
-                        $current_page = ' active" aria-current="page';
-                    } else {
-                    	// Current page status
-                        $current_page = '';
-                    }
+				    // If x equals page
+				    if ($x == $page) {
+				     // Current page status
+				     $current_page = ' active" aria-current="page';
+				    } else {
+				     // Current page status
+				     $current_page = '';
+				    }
 					?> 					
 					<li class="page-item<?php echo $current_page; ?>"><a class="page-link" href="index.php?page=<?php echo $x ?>"><?php echo $x; ?></a></li>				
 					<?php

@@ -96,14 +96,14 @@ $mysqli = mysqli_connect('localhost', 'db_user', 'db_password', 'db_name');
                      -->                                
 				        <?php 
 				        for($x = 1; $x <= $total_page; $x++) {
-					       // If x equals page
-                           if ($x == $page) {
-                    	     // Current selected page status
-                             $selected_page = ' selected';
-                            } else {
-                    	 // Current selected page status
-                         $selected_page = '';                    	
-                        }
+				           // If x equals page
+				           if ($x == $page) {
+				             // Current selected page status
+				             $selected_page = ' selected';
+				           } else {
+				             // Current selected page status
+				             $selected_page = '';                    	
+				           }
 					    ?> 
                          <option value="<?php echo $x ?>" onClick="window.location = 'index.php?page=<?php echo $x ?>'"<?php echo $selected_page ?>><?php echo $x ?></option>
 					    <?php
