@@ -98,7 +98,7 @@ $mysqli = mysqli_connect('localhost', 'db_user', 'db_password', 'db_name');
 		</table>
 		<!-- Pagination -->
 		<nav aria-label="..." class="table-responsive mb-2">
-			<ul class="pagination justify-content-center">			
+			<ul class="pagination justify-content-center mt-2">			
 				<li class="page-item">
 					<a class="page-link" <?php if ($page > 1) { echo "href='index.php?page=$previous'"; } ?>>Previous</a>
 				</li>
