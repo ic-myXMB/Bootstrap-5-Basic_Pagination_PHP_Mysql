@@ -79,7 +79,7 @@
 
                 $is_current_dir = ucwords(basename(dirname($page)));
 
-                $is_current_dir_icon = '<i class="fa-solid fa-cog"></i> ';
+                $is_current_dir_icon = '<i class="fa-solid fa-folder"></i> ';
 
                 $is_current_page_icon = '<i class="fa-solid fa-user"></i> ';
 
