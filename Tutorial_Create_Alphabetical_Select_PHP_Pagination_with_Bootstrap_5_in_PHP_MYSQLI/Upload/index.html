@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+           <title>Alphabetic Pagination (Select) - Documentation</title>
+           <!-- CSS Files -->
+           <!-- Bootstrap CSS -->  
+           <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" />
+           <!-- Font Awesome CSS -->
+           <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />   
+           <!-- Prism JS CSS -->
+           <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/themes/prism.min.css"/>
+           <!-- Prism JS plugins CSS -->
+           <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/plugins/show-language/prism-show-language.min.css" />
+           <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/plugins/line-numbers/prism-line-numbers.min.css" />
+           <!-- Inline Style -->
+           <style>
+           pre[class*="language-"][data-language]::before {
+           	 top: 40px;
+           	 z-index:  999;	
+           	 border-radius: 5px 0 0 5px;
+           }
+           pre {
+           	 border-radius: 6px;
+           	 /*overflow: scroll;
+           	 height: 300px;*/
+           }
+           .mycode_selectall { 
+           	 /*right: 23px !important;*/
+           }
+           </style>
+           <!-- BackToTop CSS -->
+           <style>
+           #btn-back-to-top {
+             position: fixed;
+             bottom: 20px;
+             right: 20px;
+             display: none;
+           }
+           </style>                      
+      </head>  
+      <body class="bg-light">  
+           <!-- Container -->
+           <div class="container mt-5">
+           	 <!-- Page Head --> 
+           	 <h4 class="mb-3"><i class="fa-solid fa-code"></i> Tutorial | Create Alphabetic Pagination (Select) in Bootstrap 5 with PHP & MYSQLI</h4>
+                <ol class="breadcrumb mb-4">
+                     <li class="breadcrumb-item"><i class="fa-solid fa-file-code"></i> <a href="index.html">Alphabetic Pagination (Select)</a></li>    
+                     <li class="breadcrumb-item active"><i class="fa-solid fa-binoculars"></i> View Documentation</li>  
+                </ol>
+                <!-- Card: List Examples-->
+                <div class="card mb-2">
+                  <div class="card-body">
+                       <h5 class="card-title border-bottom pb-3"><i class="fa-solid fa-binoculars"></i> View Alphabetic Pagination (Select) Examples</h5> 
+                       <!-- list -->
+                       <ul class="list-group">
+                         <li class="list-group-item"><a href="index.php" style="text-decoration: none;"><i class="fa-solid fa-link m-2"></i> view example </a></li>
+                       </ul>
+                  </div>
+                </div>
+                <!-- Card: Description -->
+                <div class="card mb-2">
+                  <div class="card-body">
+                       <h5 class="card-title border-bottom pb-3"><i class="fa-solid fa-file-lines"></i> Alphabetic Pagination (Select) Description</h5> 
+                       <!-- Card Text -->
+                       <div class="card-text">
+                       	<!-- Alert -->
+                       	<div class="alert alert-light m-1 mb-2 mt-2 text-secondary"><i class="fa-solid fa-info-circle m-2 text-secondary"></i> <i class="fa-solid fa-code"></i>Tutorial | Create Alphabetic Pagination (Select) in Bootstrap 5 with PHP & MYSQLI</div>
+                       	<!-- Text -->
+                       	<div class="m-1 mb-2 mt-2">Create Alphabetic Pagination (Select) in Bootstrap 5 with PHP & MYSQLI</div>                       	
+                       </div>
+                  </div>
+                </div>   
+                <!-- Card: Project Tools -->
+                <div class="card mt-2 mb-2">
+                  <div class="card-body">
+                       <h5 class="card-title border-bottom pb-3"><i class="fa-solid fa-tools"></i> Alphabetic Pagination Tools</h5> 
+                       <!-- list -->
+                       <ul class="list-group">
+                         <li class="list-group-item"><a href="https://bitnami.com/stack/mamp/installer" class="text-secondary" style="text-decoration: none;" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-cubes text-secondary m-2"></i> Bitnami MAMP Stack</a></li>
+                         <li class="list-group-item"><a href="https://www.sublimetext.com" class="text-secondary" style="text-decoration: none;" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-code text-secondary m-2"></i> SublimeText Editor</a></li>
+                         <li class="list-group-item"><a href="https://getbootstrap.com/" class="text-secondary" style="text-decoration: none;" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-bootstrap text-secondary m-2"></i> Bootstrap 5</a></li>
+                         <li class="list-group-item"><a href="https://fontawesome.com" class="text-secondary" style="text-decoration: none;" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-font-awesome text-secondary m-2"></i> Font Awesome 6</a></li>                                                                   
+                       </ul>
+                  </div>
+                </div>                              
+                <!-- Card: Setup -->
+                <div class="card mt-2 mb-2">
+                  <div class="card-body">
+                       <h5 class="card-title border-bottom pb-3"><i class="fa-solid fa-tools"></i> Alphabetic Pagination Setup</h5> 
+                       <!-- Card Text -->
+                       <div class="card-text">
+                       	<!-- Text -->
+                       	<div class="m-1 mb-2 mt-2">The setup for the demo examples is fairly simple...</div>
+                       	<!-- Alert -->
+                       	<div class="alert alert-warning m-1 mb-2 mt-2"><i class="fa-solid fa-exclamation-circle m-2"></i> For Examples to work, your must first set up the demo db tables by running the demo sql query on your test db in PHPMyAdmin.</div>
+                       	<h6 class="fw-bold text-secondary mb-1 mt-3">Code:</h6>
+                       	<!-- Code Snippet -->
+<pre class="m-1 mb-2 mt-2">
+<code class="language-sql">
+--
+-- create data table `users`
+--
+
+CREATE TABLE `users` (
+  `user_id` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  `user_name` varchar(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- insert data into table `users`
+--
+ 
+INSERT INTO `users` (`user_id`, `user_name`) VALUES
+(1, 'Faithyshety'),
+(2, 'FallenChamp'),
+(3, 'Fannynaryla'),
+(4, 'FashionMessages'),
+(5, 'Fateniusti'),
+(6, 'FearSanTear'),
+(7, 'Feistypens'),
+(8, 'Felineedia'),
+(9, 'Fieraob'),
+(10, 'Finalvect'),
+(11, 'FireNumber1'),
+(12, 'FireSoccer'),
+(13, 'Followping'),
+(14, 'Fontarspi'),
+(15, 'Foreverryla'),
+(16, 'Fortriliste'),
+(17, 'FortuneLuda'),
+(18, 'Freeritype'),
+(19, 'Freshadap'),
+(20, 'FrogHi'),
+(21, 'Fundwatecot'),
+(22, 'Fuzzygomu'),
+(23, 'Gasteryl'),
+(24, 'Genuise'),
+(25, 'GigaBest'),
+(26, 'Ginorrayda'),
+(27, 'Girldmator'),
+(28, 'Girleyepti'),
+(29, 'GirlLol'),
+(30, 'Givenemets'),
+(31, 'Glacellar'),
+(32, 'Godzillann'),
+(33, 'Goldensock'),
+(34, 'GottaCool'),
+(35, 'GrantAnguris'),
+(36, 'GreeAutZoom'),
+(37, 'Greentrix'),
+(38, 'Greyorcell'),
+(39, 'Grostami'),
+(40, 'GurlChiariZaib'),
+(41, 'Novating'),
+(42, 'NozyTin'),
+(43, 'Olecrav'),
+(44, 'Ologynywo'),
+(45, 'OlympicBigg'),
+(46, 'Olympicco'),
+(47, 'Operadisr'),
+(48, 'Optimensa'),
+(49, 'Optoflat'),
+(50, 'Oxerasa'),
+(51, 'Pantlerpe'),
+(52, 'Papereteral'),
+(53, 'PaperNumInside'),
+(54, 'Parisered'),
+(55, 'Paristerner'),
+(56, 'Phoenixeyer'),
+(57, 'Phreekaher'),
+(58, 'Pietron'),
+(59, 'PitcherVikings'),
+(60, 'PlaceSaberLaugh'),
+(61, 'Playhuret'),
+(62, 'Plenteefo'),
+(63, 'Plusakal'),
+(64, 'Prefirevv'),
+(65, 'PrepSaiyanAbove'),
+(66, 'Presynet'),
+(67, 'Primaridg'),
+(68, 'Primently'),
+(69, 'Prostric'),
+(70, 'PurfectMama'),
+(71, 'QuaylePierce'),
+(72, 'QuoteYau'),
+(73, 'RacingBright'),
+(74, 'Raphilard'),
+(75, 'Rappackence'),
+(76, 'Rationix'),
+(77, 'RavenUp'),
+(78, 'ReggaeMud'),
+(79, 'RelaxFallen'),
+(80, 'Relysitecn'),
+(81, 'Richinte'),
+(82, 'Ricking'),
+(83, 'Rightlional'),
+(84, 'Roaderer'),
+(85, 'Roughtslu'),
+(86, 'Runconnon'),
+(87, 'Sandercoit'),
+(88, 'Sativent'),
+(89, 'SaviorSister'),
+(90, 'SeeWonderGrabs'),
+(91, 'Selecomet'),
+(92, 'Sendtri'),
+(93, 'Serenextdi'),
+(94, 'ShatTopicStrong'),
+(95, 'ShinyYouLuda'),
+(96, 'ShoesDictator'),
+(97, 'Signonom'),
+(98, 'Soakatate'),
+(99, 'Solfaro'),
+(100, 'Spuffywine'),
+(101, 'Guyotexiano'),
+(102, 'HannahComments'),
+(103, 'Hannahedge'),
+(104, 'Harolcell'),
+(105, 'Heftflux'),
+(106, 'HippoPrankBunny'),
+(107, 'Hockeyeron'),
+(108, 'Hoodchitie'),
+(109, 'Hoopiatanc'),
+(110, 'Hopsale'),
+(111, 'Humatsam'),
+(112, 'Hypertyza'),
+(113, 'Iamasterti'),
+(114, 'Ianywaybo'),
+(115, 'IdealWorld'),
+(116, 'IffyTeenie'),
+(117, 'Ineschwi'),
+(118, 'Insightni'),
+(119, 'IonZeether'),
+(120, 'Iraniumba'),
+(121, 'Islandiscl'),
+(122, 'Issieldon'),
+(123, 'JameLasting'),
+(124, 'JideBinder'),
+(125, 'Justekvi'),
+(126, 'Kairsted'),
+(127, 'Kamaloya'),
+(128, 'Karlict'),
+(129, 'Kenkaship'),
+(130, 'KhadInformation'),
+(131, 'Kickingal'),
+(132, 'Kingsonet'),
+(133, 'Knoccity'),
+(134, 'KnotMan'),
+(135, 'Knotostali'),
+(136, 'LabsIssue'),
+(137, 'Laceyerwa'),
+(138, 'Lauraci'),
+(139, 'LegendGlory'),
+(140, 'LexPlotRay'),
+(141, 'Lincomput'),
+(142, 'ListChic'),
+(143, 'Lollyviro'),
+(144, 'Lootekan'),
+(145, 'Lovestertru'),
+(146, 'Lusaload'),
+(147, 'Macoract'),
+(148, 'Magnewnta'),
+(149, 'Manitimkous'),
+(150, 'Mansport'),
+(151, 'Maporist'),
+(152, 'MarcsTweet'),
+(153, 'MarsDr'),
+(154, 'MarsKitty'),
+(155, 'Mathrece'),
+(156, 'Matzelet'),
+(157, 'Megatecher'),
+(158, 'MegsLawnMitzi'),
+(159, 'MelPersonal'),
+(160, 'Mepacom'),
+(161, 'MessagesTale'),
+(162, 'Metecher'),
+(163, 'Microntel'),
+(164, 'MilkNycSnoopy'),
+(165, 'Mindarclat'),
+(166, 'Minywickve'),
+(167, 'Missburbut'),
+(168, 'Missettebe'),
+(169, 'MissTop'),
+(170, '2freefant'),
+(171, 'A1prouthin'),
+(172, 'Aboardyn'),
+(173, 'Accordi'),
+(174, 'Accreso'),
+(175, 'Adrinasa'),
+(176, 'Aerosiro'),
+(177, 'Afflastic'),
+(178, 'Aholicovan'),
+(179, 'Airbankfa'),
+(180, 'Airtranog'),
+(181, 'AlertCoolDouble'),
+(182, 'Alertopwo'),
+(183, 'AlertPrestige'),
+(184, 'Alertrans'),
+(185, 'Alkylem'),
+(186, 'Amelletr'),
+(187, 'Angelicongo'),
+(188, 'AngelsNoteDarth'),
+(189, 'Anilinivi'),
+(190, 'Anjumin'),
+(191, 'ApenguinGnome'),
+(192, 'Areerary'),
+(193, 'ArticlesRip'),
+(194, 'Atonavens'),
+(195, 'Atteenti'),
+(196, 'Automianaly'),
+(197, 'Aversha'),
+(198, 'Axiasus'),
+(199, 'Banthree'),
+(200, 'Basionee'),
+(201, 'BauerBootyChampion'),
+(202, 'Bellskyle'),
+(203, 'BenBreeze'),
+(204, 'Benefachink'),
+(205, 'BinderHeroInvader'),
+(206, 'Bionmery'),
+(207, 'Blauwlast'),
+(208, 'Boberercomm'),
+(209, 'BoltExecSilver'),
+(210, 'Boltiguiac'),
+(211, 'Boltysmica'),
+(212, 'BoxBlabFace'),
+(213, 'BoyProud'),
+(214, 'BrightBorn2'),
+(215, 'BulletinHan'),
+(216, 'BurntFuzzy'),
+(217, 'Buzzetixpo'),
+(218, 'BuzzRat'),
+(219, 'Camentho'),
+(220, 'CanyonsLaw'),
+(221, 'Capimala'),
+(222, 'CaptainRyoth'),
+(223, 'CarAnguris'),
+(224, 'Carnest'),
+(225, 'Catecto'),
+(226, 'Catuithmina'),
+(227, 'ChampBuddie'),
+(228, 'Chayonnes'),
+(229, 'CheeMs'),
+(230, 'Cheenhor'),
+(231, 'ChellBuddie'),
+(232, 'Chernazi'),
+(233, 'Chested'),
+(234, 'Chicetsyrr'),
+(235, 'ChilledBugs'),
+(236, 'ChirpWwjd'),
+(237, 'Chliondg'),
+(238, 'Chnopert'),
+(239, 'Chunkylafl'),
+(240, 'Cinecag'),
+(241, 'ClassyWaves'),
+(242, 'ClearRacing'),
+(243, 'Coiderit'),
+(244, 'Comicharm'),
+(245, 'Commsden'),
+(246, 'Condisour'),
+(247, 'Cookietyco'),
+(248, 'Cooledlity'),
+(249, 'Copeting'),
+(250, 'Corpfreti'),
+(251, 'Costiceiv'),
+(252, 'Covergymk'),
+(253, 'Cozyeyoreb'),
+(254, 'CuddlyInferno'),
+(255, 'CyberLing'),
+(256, 'Cytoryst'),
+(257, 'CzarBrainySupreme'),
+(258, 'DanceFlashXoxo'),
+(259, 'Danceparary'),
+(260, 'Daricappes'),
+(261, 'Darthstem'),
+(262, 'DasBlondie'),
+(263, 'Dcomanim'),
+(264, 'DeepSosa'),
+(265, 'DemonWacky'),
+(266, 'Dersonal'),
+(267, 'Derstoll'),
+(268, 'Derworce'),
+(269, 'DiaryKiwi'),
+(270, 'Dierdna'),
+(271, 'Digmabin'),
+(272, 'Dishiple'),
+(273, 'Diveonko'),
+(274, 'DoggRealRee'),
+(275, 'Donalderco'),
+(276, 'Dotticentat'),
+(277, 'DravenChrono'),
+(278, 'DressyMarkTime'),
+(279, 'DrummerBelieve'),
+(280, 'Easynquist'),
+(281, 'Editorerst'),
+(282, 'Eichoval'),
+(283, 'ElementBlaze'),
+(284, 'Emasttea'),
+(285, 'Eundower'),
+(286, 'Evictor'),
+(287, 'Exsecdyne'),
+(288, 'Faculus'),
+(289, 'Mitzioncele'),
+(290, 'Mobisio'),
+(291, 'Moonfient'),
+(292, 'MoreBriefing'),
+(293, 'MsMonkey'),
+(294, 'Muchtvicyc'),
+(295, 'MuraTin'),
+(296, 'NeilYour'),
+(297, 'Nephewalvi'),
+(298, 'Networkopul'),
+(299, 'Newtraltn'),
+(300, 'Nontricon');</code>
+</pre>
+                        <!-- Text -->
+                       	<div class="m-1 mb-2 mt-2">Of  course, after such you would then need to modify your db connection information within the example script in order for script to now communicate with the db and corresponding tables that via example sql query you just set up...</div>
+                       	<!-- Alert -->
+                       	<div class="alert alert-warning m-1 mb-2 mt-2"><i class="fa-solid fa-exclamation-circle m-2"></i> Modify with your connection details. You can find the code comment on line #5 and connection on line #6 in the example file index.php...</div>
+                       	<h6 class="fw-bold text-secondary mb-1 mt-3">Code:</h6>
+                       	<!-- Code Snippet -->                       	
+<pre class="m-1 mb-2 mt-2">
+<code class="language-php">
+// Connection
+$mysqli = mysqli_connect('localhost', 'db_user', 'db_pass', 'db_name');</code>
+</pre>
+                       <!-- Alert -->
+                       <div class="alert alert-light m-1 mb-4">Final notes:<br /><br />
+                       This example is simply shared "AS IS" as just a basic example in the hopes that it may be used as a starting point if desired in project and then edited and improved upon further.</div>
+                       <h5 class="card-title border-bottom pb-3"><i class="fa-solid fa-binoculars m-1"></i> View Alphabetic Pagination Examples</h5> 
+                       <!-- list -->
+                       <ul class="list-group m-1">
+                         <li class="list-group-item"><a href="index.php" style="text-decoration: none;"><i class="fa-solid fa-link m-2"></i> view example </a></li>
+                       </ul>
+                       </div>
+                  </div>
+                </div>   
+                <!-- Card: Project Links-->
+                <div class="card mt-2 mb-4">
+                  <div class="card-body">
+                       <h5 class="card-title border-bottom pb-3"><i class="fa-solid fa-link"></i> Alphabetic Pagination Links</h5> 
+                       <!-- list -->
+                       <ul class="list-group">
+                         <li class="list-group-item"><a href="https://github.com" class="text-secondary" style="text-decoration: none;" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github text-secondary m-2"></i> Alphabetic Pagination Github</a></li>
+                         <li class="list-group-item"><a href="#license_modal" data-bs-toggle="modal" data-bs-target="#license_Modal" class="text-secondary" style="text-decoration: none;"><i class="fa-solid fa-info-circle text-secondary m-2"></i> Alphabetic Pagination License</a></li>
+                       </ul>
+                  </div>
+                </div>
+                <!-- Modal -->
+                  <div class="modal fade" id="license_Modal" tabindex="-1" aria-labelledby="license_ModalLabel" aria-hidden="true">
+                     <div class="modal-dialog modal-dialog-scrollable">
+                          <div class="modal-content">
+                                <div class="modal-header">
+                                     <h5 class="modal-title" id="license_ModalLabel">Project License</h5>
+                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                     <!-- License -->
+                                     <p> MIT License<br /><br />
+                                         Copyright (c) 2022 ic-myXMB
+                                         <br /><br />
+                                         Permission is hereby granted, free of charge, to any person obtaining a copy
+                                         of this software and associated documentation files (the "Software"), to deal
+                                         in the Software without restriction, including without limitation the rights
+                                         to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+                                         copies of the Software, and to permit persons to whom the Software is
+                                         furnished to do so, subject to the following conditions:
+                                         <br /><br />
+                                         The above copyright notice and this permission notice shall be included in all
+                                         copies or substantial portions of the Software.
+                                         <br /><br />
+                                         THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+                                         IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+                                         FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+                                         AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+                                         LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+                                         OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+                                         SOFTWARE.
+                                     </p>
+                                </div>
+                                <div class="modal-footer">
+                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                               </div>
+                          </div>
+                     </div>
+                  </div> <!--/. End Modal -->
+           </div> <!-- ./ end container -->
+           <!-- Footer -->
+           <!-- Container -->
+           <div class="container">
+             <footer class="py-3 my-4">
+               <p class="text-center text-secondary">Alphabetic Pagination &copy; 2022 <small><span class="love">Made with <i class="fa-solid fa-heart text-danger"></i> by <a class="text-primary" href="https://github.com/ic-myXMB" target="_blank" rel="noopener noreferrer" style="text-decoration: none;">ic_myXMB</a></span></small></p>
+             </footer>             
+           </div> <!-- ./ end container -->
+           <!-- Back To Top Button -->
+           <button type="button" class="btn btn-secondary btn-floating btn-lg" id="btn-back-to-top">
+                 <i class="fa-solid fa-arrow-up text-white"></i>
+           </button>  
+           <!-- Back To Top JS -->
+           <script>
+           //Get the button
+           let mybutton = document.getElementById("btn-back-to-top");
+           // When the user scrolls down 20px from the top of the document, show the button
+           window.onscroll = function () {
+             scrollFunction();
+           };
+           function scrollFunction() {
+             if (
+               document.body.scrollTop > 20 ||
+               document.documentElement.scrollTop > 20
+             ) {
+               mybutton.style.display = "block";
+             } else {
+               mybutton.style.display = "none";
+             }
+           }
+           // When the user clicks on the button, scroll to the top of the document
+           mybutton.addEventListener("click", backToTop);
+           function backToTop() {
+             document.body.scrollTop = 0;
+             document.documentElement.scrollTop = 0;
+           }
+           </script>
+           <!-- JS Files -->
+           <!-- JQuery JS -->
+           <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script> 
+           <!-- Bootstrap JS -->
+           <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
+           <!-- Prism JS -->
+           <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/prism.min.js"></script>
+           <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/components/prism-sql.min.js"></script>  
+           <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/components/prism-php.min.js"></script> 
+           <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/plugins/show-language/prism-show-language.min.js"></script>
+           <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/plugins/line-numbers/prism-line-numbers.min.js"></script>
+           <script src="https://cdn.jsdelivr.net/npm/j-prism-toolbar@1.3.0/dist/jPrismToolbar.min.js"></script>
+           <!-- Init Prism JS -->
+           <script>
+           $( document ).ready(function() {
+           	$("pre").addClass("line-numbers");
+               Prism.highlightAll();
+           });
+           </script>
+           <!-- PRE CODE Select All / Copy JS -->
+           <script type="text/javascript">
+           var sheet = document.createElement('style')
+           sheet.innerHTML = (".mycode_selectall_wrap { position: relative; }" +
+           ".mycode_selectall { position: absolute; top: 5px; right: 3px; font-family: sans-serif; color: #767E86; background: #F5F2F0; padding: 6px; border-radius: 5px 0 0 5px; display: inline-block;}" +
+           ".mycode_selectall:hover { color: #339467; cursor: pointer; }");
+           document.body.appendChild(sheet);
+           $('pre:has(code)').each(function(){
+               function selectText(element) {
+                   var doc = document
+                       , text = element
+                       , range, selection
+                   ;    
+                   if (doc.body.createTextRange) { //ms
+                       range = doc.body.createTextRange();
+                       range.moveToElementText(text);
+                       range.select();
+                   } else if (window.getSelection) { //all others
+                       selection = window.getSelection();        
+                       range = doc.createRange();
+                       range.selectNodeContents(text);
+                       selection.removeAllRanges();
+                       selection.addRange(range);
+                   }
+               }
+               var input = $('<div class="mycode_selectall text-secondary" data-bs-toggle="tooltip" data-bs-placement="left" title="Cut & Copy"><i class="fa-sharp fa-solid fa-scissors"></i> <i class="fa-sharp fa-solid fa-copy"></i></div>'),
+                   that = this;
+               input.click(function(){
+                   // selected
+                   selectText($('code',that)[0]);
+                   // copy the selected
+                   document.execCommand('copy');
+               });
+               $(this).wrap('<div class="mycode_selectall_wrap mb-4">').after(input);
+           });
+           </script> 
+           <!-- Bootstrap JS Tooltips Init -->
+           <script>
+           var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+           var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+             return new bootstrap.Tooltip(tooltipTriggerEl);
+           });
+           </script> 
+      </body>  
+ </html> 
+                  

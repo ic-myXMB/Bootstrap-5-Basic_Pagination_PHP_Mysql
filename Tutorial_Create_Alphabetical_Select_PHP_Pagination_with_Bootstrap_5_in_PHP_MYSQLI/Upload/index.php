@@ -66,7 +66,31 @@
       </head>  
       <body>  
            <div class="container mt-5"> 
-                <h2 class="mb-3" align="center"><i class="fa-solid fa-code"></i> Tutorial | Create Alphabetic Pagination (Select) in Bootstrap 5 with PHP & MYSQLI</h2>                  
+                <h2 class="mb-3" align="center"><i class="fa-solid fa-code"></i> Tutorial | Create Alphabetic Pagination (Select) in Bootstrap 5 with PHP & MYSQLI</h2>
+
+                <?php
+                // Demo Breadcrumb 
+
+                $is_page = 'index.php';
+
+                $is_current_page = ucwords(str_replace("_", " ", (basename($is_page, ".php"))));
+
+                $page = $_SERVER['PHP_SELF'];
+
+                $is_current_dir = ucwords(basename(dirname($page)));
+
+                $is_current_dir_icon = '<i class="fa-solid fa-cog"></i> ';
+
+                $is_current_page_icon = '<i class="fa-solid fa-user"></i> ';
+
+                ?>
+
+                <!-- Breadcrumb -->
+                <ol class="breadcrumb mb-4">
+                     <li class="breadcrumb-item"><?php echo $is_current_dir_icon; ?><a href="../<?php echo $is_current_dir; ?>"><?php echo $is_current_dir; ?></a></li>                   
+                     <li class="breadcrumb-item active"><?php echo $is_current_page_icon; ?><?php echo $is_current_page; ?></li>
+                </ol>
+                                  
                 <!-- Table --> 
                 <div class="table-responsive">  
                      <div align="center">  
