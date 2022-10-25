@@ -44,7 +44,7 @@ $mysqli = mysqli_connect('localhost', 'db_user', 'db_password', 'db_name');
 
              $is_current_dir_icon = '<i class="fa-solid fa-folder"></i> ';
 
-             $is_current_page_icon = '<i class="fa-solid fa-user"></i> ';
+             $is_current_page_icon = '<i class="fa-solid fa-file"></i> ';
 
         ?>
 
