@@ -45,6 +45,28 @@ $mysqli = mysqli_connect('localhost', 'db_user', 'db_password', 'db_name');
 		<center>
 			<h2 class="mb-5"><i class="fa-solid fa-code"></i> Tutorial | Create PHP Pagination with Bootstrap 5 in PHP & MYSQLI</h2>
 		</center>
+         <?php
+             // Demo Breadcrumb 
+
+             $is_page = 'index.php';
+
+             $is_current_page = ucwords(str_replace("_", " ", (basename($is_page, ".php"))));
+
+             $page = $_SERVER['PHP_SELF'];
+
+             $is_current_dir = ucwords(basename(dirname($page)));
+
+             $is_current_dir_icon = '<i class="fa-solid fa-folder"></i> ';
+
+             $is_current_page_icon = '<i class="fa-solid fa-user"></i> ';
+
+        ?>
+
+        <!-- Breadcrumb -->
+        <ol class="breadcrumb mb-4">
+             <li class="breadcrumb-item"><?php echo $is_current_dir_icon; ?><a href="../<?php echo $is_current_dir; ?>"><?php echo $is_current_dir; ?></a></li>                   
+             <li class="breadcrumb-item active"><?php echo $is_current_page_icon; ?><?php echo $is_current_page; ?></li>
+        </ol>			
 		<!-- Table -->
 		<div class="table-responsive">		
 		<table class="table table-striped table-bordered">

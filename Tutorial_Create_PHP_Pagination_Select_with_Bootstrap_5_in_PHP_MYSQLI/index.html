@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+           <title>Pagination - Documentation Template</title>
+           <!-- CSS Files -->
+           <!-- Bootstrap CSS -->  
+           <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" />
+           <!-- Font Awesome CSS -->
+           <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />   
+           <!-- Prism JS CSS -->
+           <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/themes/prism.min.css"/>
+           <!-- Prism JS plugins CSS -->
+           <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/plugins/show-language/prism-show-language.min.css" />
+           <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/plugins/line-numbers/prism-line-numbers.min.css" />
+           <!-- Inline Style -->
+           <style>
+           pre[class*="language-"][data-language]::before {
+           	 top: 40px;
+           	 z-index:  999;	
+           	 border-radius: 5px 0 0 5px;
+           }
+           pre {
+           	 border-radius: 6px;
+           	 /*overflow: scroll;
+           	 height: 300px;*/
+           }
+           .mycode_selectall { 
+           	 /*right: 23px !important;*/
+           }
+           </style>
+           <!-- BackToTop CSS -->
+           <style>
+           #btn-back-to-top {
+             position: fixed;
+             bottom: 20px;
+             right: 20px;
+             display: none;
+           }
+           </style>                      
+      </head>  
+      <body class="bg-light">  
+           <!-- Container -->
+           <div class="container mt-5">
+           	 <!-- Page Head --> 
+           	 <h4 class="mb-3"><i class="fa-solid fa-code"></i>Tutorial | Create PHP Pagination (Select) with Bootstrap 5 in PHP & MYSQLI</h4>
+                <ol class="breadcrumb mb-4">
+                     <li class="breadcrumb-item"><i class="fa-solid fa-file-code"></i> <a href="index.html">Pagination</a></li>    
+                     <li class="breadcrumb-item active"><i class="fa-solid fa-binoculars"></i> View Documentation</li>  
+                </ol>
+                <!-- Card: List Examples-->
+                <div class="card mb-2">
+                  <div class="card-body">
+                       <h5 class="card-title border-bottom pb-3"><i class="fa-solid fa-binoculars"></i> View Pagination Examples</h5> 
+                       <!-- list -->
+                       <ul class="list-group">
+                         <li class="list-group-item"><a href="index.php" style="text-decoration: none;"><i class="fa-solid fa-link m-2"></i> view example </a></li>
+                       </ul>
+                  </div>
+                </div>
+                <!-- Card: Description -->
+                <div class="card mb-2">
+                  <div class="card-body">
+                       <h5 class="card-title border-bottom pb-3"><i class="fa-solid fa-file-lines"></i> Pagination Description</h5> 
+                       <!-- Card Text -->
+                       <div class="card-text">
+                       	<!-- Alert -->
+                       	<div class="alert alert-light m-1 mb-2 mt-2 text-secondary"><i class="fa-solid fa-info-circle m-2 text-secondary"></i> <i class="fa-solid fa-code"></i>Tutorial | Create PHP Pagination (Select) with Bootstrap 5 in PHP & MYSQLI</div>
+                       	<!-- Text -->
+                       	<div class="m-1 mb-2 mt-2">Create Pagination in Bootstrap 5 with PHP & MYSQLI</div>                       	
+                       </div>
+                  </div>
+                </div>   
+                <!-- Card: Project Tools -->
+                <div class="card mt-2 mb-2">
+                  <div class="card-body">
+                       <h5 class="card-title border-bottom pb-3"><i class="fa-solid fa-tools"></i> Pagination Tools</h5> 
+                       <!-- list -->
+                       <ul class="list-group">
+                         <li class="list-group-item"><a href="https://bitnami.com/stack/mamp/installer" class="text-secondary" style="text-decoration: none;" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-cubes text-secondary m-2"></i> Bitnami MAMP Stack</a></li>
+                         <li class="list-group-item"><a href="https://www.sublimetext.com" class="text-secondary" style="text-decoration: none;" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-code text-secondary m-2"></i> SublimeText Editor</a></li>
+                         <li class="list-group-item"><a href="https://getbootstrap.com/" class="text-secondary" style="text-decoration: none;" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-bootstrap text-secondary m-2"></i> Bootstrap 5</a></li>
+                         <li class="list-group-item"><a href="https://fontawesome.com" class="text-secondary" style="text-decoration: none;" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-font-awesome text-secondary m-2"></i> Font Awesome 6</a></li>                                                                   
+                       </ul>
+                  </div>
+                </div>                              
+                <!-- Card: Setup -->
+                <div class="card mt-2 mb-2">
+                  <div class="card-body">
+                       <h5 class="card-title border-bottom pb-3"><i class="fa-solid fa-tools"></i> Pagination Setup</h5> 
+                       <!-- Card Text -->
+                       <div class="card-text">
+                       	<!-- Text -->
+                       	<div class="m-1 mb-2 mt-2">The setup for the demo examples is fairly simple...</div>
+                       	<!-- Alert -->
+                       	<div class="alert alert-warning m-1 mb-2 mt-2"><i class="fa-solid fa-exclamation-circle m-2"></i> For Examples to work, your must first set up the demo db tables by running the demo sql query on your test db in PHPMyAdmin.</div>
+                       	<h6 class="fw-bold text-secondary mb-1 mt-3">Code:</h6>
+                       	<!-- Code Snippet -->
+<pre class="m-1 mb-2 mt-2">
+<code class="language-sql">
+--
+-- create data table `posts`
+--
+
+CREATE TABLE `posts` (
+  `post_id` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  `post_name` varchar(30) NOT NULL,
+  `post_author` varchar(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- insert data into table `posts`
+--
+ 
+INSERT INTO `posts` (`post_id`, `post_name`, `post_author`) VALUES
+(1, 'In Otter News: Podcast # 1', 'Ottermin'),
+(2, 'In Otter News: Podcast # 2', 'Ottermin'),
+(3, 'In Otter News: Podcast # 3', 'Ottermin'),
+(4, 'In Otter News: Podcast # 4', 'Ottermin'),
+(5, 'In Otter News: Podcast # 5', 'Ottermin'),
+(6, 'In Otter News: Podcast # 6', 'Ottermin'),
+(7, 'In Otter News: Podcast # 7', 'Ottermin'),
+(8, 'In Otter News: Podcast # 8', 'Ottermin'),
+(9, 'In Otter News: Podcast # 9', 'Ottermin'),
+(10, 'In Otter News: Podcast # 10', 'Ottermin'),
+(11, 'In Otter News: Podcast # 11', 'Ottermin'),
+(12, 'In Otter News: Podcast # 12', 'Ottermin'),
+(13, 'In Otter News: Podcast # 13', 'Ottermin'),
+(14, 'In Otter News: Podcast # 14', 'Ottermin'),
+(15, 'In Otter News: Podcast # 15', 'Ottermin'),
+(16, 'In Otter News: Podcast # 16', 'Ottermin'),
+(17, 'In Otter News: Podcast # 17', 'Ottermin'),
+(18, 'In Otter News: Podcast # 18', 'Ottermin'),
+(19, 'In Otter News: Podcast # 19', 'Ottermin'),
+(20, 'In Otter News: Podcast # 20', 'Ottermin'),
+(21, 'In Otter News: Podcast # 21', 'Ottermin'),
+(22, 'In Otter News: Podcast # 22', 'Ottermin'),
+(23, 'In Otter News: Podcast # 23', 'Ottermin'),
+(24, 'In Otter News: Podcast # 24', 'Ottermin'),
+(25, 'In Otter News: Podcast # 25', 'Ottermin'),
+(26, 'In Otter News: Podcast # 26', 'Ottermin'),
+(27, 'In Otter News: Podcast # 27', 'Ottermin'),
+(28, 'In Otter News: Podcast # 28', 'Ottermin'),
+(29, 'In Otter News: Podcast # 29', 'Ottermin'),
+(30, 'In Otter News: Podcast # 30', 'Ottermin'),
+(31, 'In Otter News: Podcast # 31', 'Ottermin'),
+(32, 'In Otter News: Podcast # 32', 'Ottermin'),
+(33, 'In Otter News: Podcast # 33', 'Ottermin'),
+(34, 'In Otter News: Podcast # 34', 'Ottermin'),
+(35, 'In Otter News: Podcast # 35', 'Ottermin'),
+(36, 'In Otter News: Podcast # 36', 'Ottermin'),
+(37, 'In Otter News: Podcast # 37', 'Ottermin'),
+(38, 'In Otter News: Podcast # 38', 'Ottermin'),
+(39, 'In Otter News: Podcast # 39', 'Ottermin'),
+(40, 'In Otter News: Podcast # 40', 'Ottermin'),
+(41, 'In Otter News: Podcast # 41', 'Ottermin'),
+(42, 'In Otter News: Podcast # 42', 'Ottermin'),
+(43, 'In Otter News: Podcast # 43', 'Ottermin'),
+(44, 'In Otter News: Podcast # 44', 'Ottermin'),
+(45, 'In Otter News: Podcast # 45', 'Ottermin'),
+(46, 'In Otter News: Podcast # 46', 'Ottermin'),
+(47, 'In Otter News: Podcast # 47', 'Ottermin'),
+(48, 'In Otter News: Podcast # 48', 'Ottermin'),
+(49, 'In Otter News: Podcast # 49', 'Ottermin'),
+(50, 'In Otter News: Podcast # 50', 'Ottermin'),
+(51, 'In Otter News: Podcast # 51', 'Ottermin'),
+(52, 'In Otter News: Podcast # 52', 'Ottermin'),
+(53, 'In Otter News: Podcast # 53', 'Ottermin'),
+(54, 'In Otter News: Podcast # 54', 'Ottermin'),
+(55, 'In Otter News: Podcast # 55', 'Ottermin'),
+(56, 'In Otter News: Podcast # 56', 'Ottermin'),
+(57, 'In Otter News: Podcast # 57', 'Ottermin'),
+(58, 'In Otter News: Podcast # 58', 'Ottermin'),
+(59, 'In Otter News: Podcast # 59', 'Ottermin'),
+(60, 'In Otter News: Podcast # 60', 'Ottermin'),
+(61, 'In Otter News: Podcast # 61', 'Ottermin'),
+(62, 'In Otter News: Podcast # 62', 'Ottermin'),
+(63, 'In Otter News: Podcast # 63', 'Ottermin'),
+(64, 'In Otter News: Podcast # 64', 'Ottermin'),
+(65, 'In Otter News: Podcast # 65', 'Ottermin'),
+(66, 'In Otter News: Podcast # 66', 'Ottermin'),
+(67, 'In Otter News: Podcast # 67', 'Ottermin'),
+(68, 'In Otter News: Podcast # 68', 'Ottermin'),
+(69, 'In Otter News: Podcast # 69', 'Ottermin'),
+(70, 'In Otter News: Podcast # 70', 'Ottermin'),
+(71, 'In Otter News: Podcast # 71', 'Ottermin'),
+(72, 'In Otter News: Podcast # 72', 'Ottermin'),
+(73, 'In Otter News: Podcast # 73', 'Ottermin'),
+(74, 'In Otter News: Podcast # 74', 'Ottermin'),
+(75, 'In Otter News: Podcast # 75', 'Ottermin'),
+(76, 'In Otter News: Podcast # 76', 'Ottermin'),
+(77, 'In Otter News: Podcast # 77', 'Ottermin'),
+(78, 'In Otter News: Podcast # 78', 'Ottermin'),
+(79, 'In Otter News: Podcast # 79', 'Ottermin'),
+(80, 'In Otter News: Podcast # 80', 'Ottermin'),
+(81, 'In Otter News: Podcast # 81', 'Ottermin'),
+(82, 'In Otter News: Podcast # 82', 'Ottermin'),
+(83, 'In Otter News: Podcast # 83', 'Ottermin'),
+(84, 'In Otter News: Podcast # 84', 'Ottermin'),
+(85, 'In Otter News: Podcast # 85', 'Ottermin'),
+(86, 'In Otter News: Podcast # 86', 'Ottermin'),
+(87, 'In Otter News: Podcast # 87', 'Ottermin'),
+(88, 'In Otter News: Podcast # 88', 'Ottermin'),
+(89, 'In Otter News: Podcast # 89', 'Ottermin'),
+(90, 'In Otter News: Podcast # 90', 'Ottermin'),
+(91, 'In Otter News: Podcast # 91', 'Ottermin'),
+(92, 'In Otter News: Podcast # 92', 'Ottermin'),
+(93, 'In Otter News: Podcast # 93', 'Ottermin'),
+(94, 'In Otter News: Podcast # 94', 'Ottermin'),
+(95, 'In Otter News: Podcast # 95', 'Ottermin'),
+(96, 'In Otter News: Podcast # 96', 'Ottermin'),
+(97, 'In Otter News: Podcast # 97', 'Ottermin'),
+(98, 'In Otter News: Podcast # 98', 'Ottermin'),
+(99, 'In Otter News: Podcast # 99', 'Ottermin'),
+(100, 'In Otter News: Podcast # 100', 'Ottermin');</code>
+</pre>
+                        <!-- Text -->
+                       	<div class="m-1 mb-2 mt-2">Of  course, after such you would then need to modify your db connection information within the example script in order for script to now communicate with the db and corresponding tables that via example sql query you just set up...</div>
+                       	<!-- Alert -->
+                       	<div class="alert alert-warning m-1 mb-2 mt-2"><i class="fa-solid fa-exclamation-circle m-2"></i> Modify with your connection details. You can find the code comment on line #5 and connection on line #6 in the example file index.php...</div>
+                       	<h6 class="fw-bold text-secondary mb-1 mt-3">Code:</h6>
+                       	<!-- Code Snippet -->                       	
+<pre class="m-1 mb-2 mt-2">
+<code class="language-php">
+// Connection
+$mysqli = mysqli_connect('localhost', 'db_user', 'db_pass', 'db_name');</code>
+</pre>
+                       <!-- Alert -->
+                       <div class="alert alert-light m-1 mb-4">Final notes:<br /><br />
+                       This example is simply shared "AS IS" as just a basic example in the hopes that it may be used as a starting point if desired in project and then edited and improved upon further.</div>
+                       <h5 class="card-title border-bottom pb-3"><i class="fa-solid fa-binoculars m-1"></i> View Pagination Examples</h5> 
+                       <!-- list -->
+                       <ul class="list-group m-1">
+                         <li class="list-group-item"><a href="index.php" style="text-decoration: none;"><i class="fa-solid fa-link m-2"></i> view example </a></li>
+                       </ul>
+                       </div>
+                  </div>
+                </div>   
+                <!-- Card: Project Links-->
+                <div class="card mt-2 mb-4">
+                  <div class="card-body">
+                       <h5 class="card-title border-bottom pb-3"><i class="fa-solid fa-link"></i> Pagination Links</h5> 
+                       <!-- list -->
+                       <ul class="list-group">
+                         <li class="list-group-item"><a href="https://github.com/ic-myXMB/Bootstrap-5-Basic_Pagination_PHP_Mysql/tree/main/Tutorial_Create_PHP_Pagination_Select_with_Bootstrap_5_in_PHP_MYSQLI" class="text-secondary" style="text-decoration: none;" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github text-secondary m-2"></i> Pagination Github</a></li>
+                         <li class="list-group-item"><a href="#license_modal" data-bs-toggle="modal" data-bs-target="#license_Modal" class="text-secondary" style="text-decoration: none;"><i class="fa-solid fa-info-circle text-secondary m-2"></i> Pagination License</a></li>
+                       </ul>
+                  </div>
+                </div>
+                <!-- Modal -->
+                  <div class="modal fade" id="license_Modal" tabindex="-1" aria-labelledby="license_ModalLabel" aria-hidden="true">
+                     <div class="modal-dialog modal-dialog-scrollable">
+                          <div class="modal-content">
+                                <div class="modal-header">
+                                     <h5 class="modal-title" id="license_ModalLabel">Project License</h5>
+                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                     <!-- License -->
+                                     <p> MIT License<br /><br />
+                                         Copyright (c) 2022 ic-myXMB
+                                         <br /><br />
+                                         Permission is hereby granted, free of charge, to any person obtaining a copy
+                                         of this software and associated documentation files (the "Software"), to deal
+                                         in the Software without restriction, including without limitation the rights
+                                         to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+                                         copies of the Software, and to permit persons to whom the Software is
+                                         furnished to do so, subject to the following conditions:
+                                         <br /><br />
+                                         The above copyright notice and this permission notice shall be included in all
+                                         copies or substantial portions of the Software.
+                                         <br /><br />
+                                         THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+                                         IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+                                         FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+                                         AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+                                         LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+                                         OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+                                         SOFTWARE.
+                                     </p>
+                                </div>
+                                <div class="modal-footer">
+                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                               </div>
+                          </div>
+                     </div>
+                  </div> <!--/. End Modal -->
+           </div> <!-- ./ end container -->
+           <!-- Footer -->
+           <!-- Container -->
+           <div class="container">
+             <footer class="py-3 my-4">
+               <p class="text-center text-secondary">Pagination &copy; 2022 <small><span class="love">Made with <i class="fa-solid fa-heart text-danger"></i> by <a class="text-primary" href="https://github.com/ic-myXMB" target="_blank" rel="noopener noreferrer" style="text-decoration: none;">ic_myXMB</a></span></small></p>
+             </footer>             
+           </div> <!-- ./ end container -->
+           <!-- Back To Top Button -->
+           <button type="button" class="btn btn-secondary btn-floating btn-lg" id="btn-back-to-top">
+                 <i class="fa-solid fa-arrow-up text-white"></i>
+           </button>  
+           <!-- Back To Top JS -->
+           <script>
+           //Get the button
+           let mybutton = document.getElementById("btn-back-to-top");
+           // When the user scrolls down 20px from the top of the document, show the button
+           window.onscroll = function () {
+             scrollFunction();
+           };
+           function scrollFunction() {
+             if (
+               document.body.scrollTop > 20 ||
+               document.documentElement.scrollTop > 20
+             ) {
+               mybutton.style.display = "block";
+             } else {
+               mybutton.style.display = "none";
+             }
+           }
+           // When the user clicks on the button, scroll to the top of the document
+           mybutton.addEventListener("click", backToTop);
+           function backToTop() {
+             document.body.scrollTop = 0;
+             document.documentElement.scrollTop = 0;
+           }
+           </script>
+           <!-- JS Files -->
+           <!-- JQuery JS -->
+           <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script> 
+           <!-- Bootstrap JS -->
+           <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
+           <!-- Prism JS -->
+           <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/prism.min.js"></script>
+           <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/components/prism-sql.min.js"></script>  
+           <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/components/prism-php.min.js"></script> 
+           <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/plugins/show-language/prism-show-language.min.js"></script>
+           <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/plugins/line-numbers/prism-line-numbers.min.js"></script>
+           <script src="https://cdn.jsdelivr.net/npm/j-prism-toolbar@1.3.0/dist/jPrismToolbar.min.js"></script>
+           <!-- Init Prism JS -->
+           <script>
+           $( document ).ready(function() {
+           	$("pre").addClass("line-numbers");
+               Prism.highlightAll();
+           });
+           </script>
+           <!-- PRE CODE Select All / Copy JS -->
+           <script type="text/javascript">
+           var sheet = document.createElement('style')
+           sheet.innerHTML = (".mycode_selectall_wrap { position: relative; }" +
+           ".mycode_selectall { position: absolute; top: 5px; right: 3px; font-family: sans-serif; color: #767E86; background: #F5F2F0; padding: 6px; border-radius: 5px 0 0 5px; display: inline-block;}" +
+           ".mycode_selectall:hover { color: #339467; cursor: pointer; }");
+           document.body.appendChild(sheet);
+           $('pre:has(code)').each(function(){
+               function selectText(element) {
+                   var doc = document
+                       , text = element
+                       , range, selection
+                   ;    
+                   if (doc.body.createTextRange) { //ms
+                       range = doc.body.createTextRange();
+                       range.moveToElementText(text);
+                       range.select();
+                   } else if (window.getSelection) { //all others
+                       selection = window.getSelection();        
+                       range = doc.createRange();
+                       range.selectNodeContents(text);
+                       selection.removeAllRanges();
+                       selection.addRange(range);
+                   }
+               }
+               var input = $('<div class="mycode_selectall text-secondary" data-bs-toggle="tooltip" data-bs-placement="left" title="Cut & Copy"><i class="fa-sharp fa-solid fa-scissors"></i> <i class="fa-sharp fa-solid fa-copy"></i></div>'),
+                   that = this;
+               input.click(function(){
+                   // selected
+                   selectText($('code',that)[0]);
+                   // copy the selected
+                   document.execCommand('copy');
+               });
+               $(this).wrap('<div class="mycode_selectall_wrap mb-4">').after(input);
+           });
+           </script> 
+           <!-- Bootstrap JS Tooltips Init -->
+           <script>
+           var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+           var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+             return new bootstrap.Tooltip(tooltipTriggerEl);
+           });
+           </script> 
+      </body>  
+ </html> 
+                  
