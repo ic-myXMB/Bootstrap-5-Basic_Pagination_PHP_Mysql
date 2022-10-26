@@ -29,7 +29,7 @@ $mysqli = mysqli_connect('localhost', 'db_user', 'db_password', 'db_name');
 <body>
 	<div class="container mt-5">
 		<center>
-			<h2 class="mb-5"><i class="fa-solid fa-code"></i> Tutorial | Create PHP Pagination (Select) with Bootstrap 5 in PHP & MYSQLI</h2>
+			<h4 class="mb-5"><i class="fa-solid fa-code"></i> Tutorial | Create PHP Pagination (Select) with Bootstrap 5 in PHP & MYSQLI</h4>
 		</center>
          <?php
              // Demo Breadcrumb 

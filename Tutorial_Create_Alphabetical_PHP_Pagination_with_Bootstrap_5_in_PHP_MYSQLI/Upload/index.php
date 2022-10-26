@@ -60,7 +60,7 @@
       </head>  
       <body>  
            <div class="container mt-5"> 
-                <h2 class="mb-3" align="center"><i class="fa-solid fa-code"></i> Tutorial | Create Alphabetic Pagination in Bootstrap 5 with PHP & MYSQLI</h2> 
+                <h4 class="mb-3" align="center"><i class="fa-solid fa-code"></i> Tutorial | Create Alphabetic Pagination in Bootstrap 5 with PHP & MYSQLI</h4> 
 
                 <?php
                 // Demo Breadcrumb 
