@@ -63,7 +63,7 @@ $mysqli = mysqli_connect('localhost', 'db_user', 'db_password', 'db_name');
         ?>
 
         <!-- Breadcrumb -->
-        <ol class="breadcrumb mb-4 mt-4 p-2 bg-light rounded-3">
+        <ol class="breadcrumb mb-4 mt-4 p-2 bg-light border border-default rounded-3">
              <li class="breadcrumb-item"><?php echo $is_current_dir_icon; ?><a href="../<?php echo $is_current_dir; ?>"><?php echo $is_current_dir; ?></a></li>                   
              <li class="breadcrumb-item active"><?php echo $is_current_page_icon; ?><?php echo $is_current_page; ?></li>
         </ol>			
